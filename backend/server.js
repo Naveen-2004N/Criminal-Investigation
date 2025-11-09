@@ -1,8 +1,10 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import admin from 'firebase-admin'; // --- (1) USE CLASSIC IMPORT
 import schedule from "node-schedule";
-import admin from './firebaseAdmin.js';
+import { createRequire } from 'module';
+
 import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
@@ -11,8 +13,17 @@ import criminalRoutes from './routes/criminalRoutes.js';
 import detectionRoutes from './routes/detectionRoutes.js'; 
 import aiRoutes from './routes/aiRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
+import fs from "fs";
 
 
+const require = createRequire(import.meta.url);
+const serviceAccount = JSON.parse(
+  fs.readFileSync(new URL("./config/serviceAccountKey.json", import.meta.url))
+);
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
 
 dotenv.config();
 
