@@ -83,4 +83,4 @@ The React frontend will be available at http://localhost:5173.
 The Node.js backend server will be running on http://localhost:5000.
 =======
 # Criminal-Investigation
->>>>>>> 5a078d34ba7ec132a540bdfb3c5389defd1b7826
+
