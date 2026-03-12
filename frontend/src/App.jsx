@@ -30,7 +30,7 @@ function App() {
     Notification.requestPermission().then(async (permission) => {
       console.log(permission)
       if (permission === 'granted') {
-        const currentToken = await getToken(messaging, { vapidKey: 'BOqxFpVwOta81U9o6WEBJSRnWegFGI0Yd28Gu51XYrsAKXDuX4YN8LeDB8-POtUaXVYFRH8HeZr0koY09XfaFGA' });
+        const currentToken = await getToken(messaging, { vapidKey: 'BAPfJYxQ4BWi39wVXXW6-BUhhR-OPFp6C11gt4qCr3UQiWK1yIZTDeSgV4yLmXOd7GKJ4grHeeQXowGcRRfHmUQ' });
         setToken(currentToken);
         console.log('FCM Token:', currentToken);
       }
